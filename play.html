@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>TheCodingQuizGame</title>
+    <!-- Bootstrap CSS -BOOTSTRAP ALREADY HAS A RESET -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="Styles/indexstyles.css"/>
+  </head>
+  
+  <body>
+    <!-- Start of NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="index.html">Coding Quiz Game</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">High Scores</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End of Navbar -->
+    <!-- Start of Score Board Section-->
+    <section class="container no-gutters">
+        <div class="row">
+            <div class="col-4 d-flex justify-content-between">
+                <button type="button" id="highscore-button" class="btn btn-info bg-primary">View High Scores</button> 
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4 d-flex justify-content-end">
+                <form>
+                    <div class="form-group row">
+                        <label for="time-remaining" class="form-label d-flex justify-content-between">Time Remaining</label>
+                        <div class="">
+                            <input type="number" readonly class="form-control d-flex justify-content-between" id="time-remaining" placeholder="0">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </section>
+  <div id="landing-container" class="container">
+      <div class="row mb-3">
+          <div class="col-12 text-center">
+              <h1>Code Quiz</h1>
+          </div>
+      </div>
+      <div class="row mb-3">
+          <div class="col-12 text-center">
+              <p>Answer all the questions before the timer runs out!  Each wrong answer will subtract 15 seconds from the timer.  The more time left on the clock when all questions are answered, the higher your score!</p>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-12 text-center">
+              <button id="start-button" type="button" class="btn btn-secondary btn-lg">Start Quiz</button>
+          </div>
+      </div>
+  </div>
+
+  <div id="quiz-container" class="container d-none">
+      
+  </div>
+  <div id="final-container" class="container d-none">
+      <div class="row">
+          <div class="col-12 text-center">
+              <form>
+                  <div class="form-group row">
+                      <label for="final-score" class="col-sm-7 col-form-label">Final Score</label>
+                      <div class="col-sm-5">
+                          <input type="number" readonly class="form-control" id="final-score" placeholder="0">
+                      </div>
+                  </div>
+              </form>
+              <form>
+                  <div class="form-group">
+                    <label for="initials-entry">Initials</label>
+                    <input type="text" class="form-control" id="initials-entry" placeholder="Enter initials">
+                  </div>
+                  <button id="submit-initials" type="button" class="btn btn-primary">Submit</button>
+              </form>
+          </div>
+      </div>
+  </div>
+  <div id="highscore-container" class="container d-none">
+      <div class="row">
+          <div class="col-2"></div>
+          <div id="highscore-table" class="col-8">
+              <div class="row">
+                  <div class="col-12 text-center">
+                      <h2>High Scores</h2>
+                  </div>
+              </div>
+          </div>
+          <div class="col-2"></div>
+      </div>
+  </div>
+    </main>
+    <!-- End of Jumbotron -->
+    <!-- Start of Footer -->
+    <!-- Footer -->
+    <footer class="page-footer font-small blue">
+    <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">The Coding Quiz Game
+            <a href="index.html"> Home</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    <!-- End of Footer -->
+    <script src="script.js"></script>
+  </body>
+</html>
