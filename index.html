@@ -3,13 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>TheCodingQuizGame</title>
+    <!-- Bootstrap CSS -BOOTSTRAP ALREADY HAS A RESET -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"/>
   </head>
   
   <body>
-    <div></div>
-    <script src="script.js"></script>
+    <!-- Start of NavBar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="index.html">Coding Quiz Game</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">High Scores</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End of Navbar -->
+    <!-- Start of Jumbotron -->
+    <main>
+      <div class="jumbotron" style = "text-align: center;">
+        <h1 class="display-4">Welcome to the Coding Quiz Game</h1>
+        <p class="lead">Test your coding knowledge in this multiple choice timed quiz game.</p>
+        <p>Get an answer correct, and continue on.  Get an answer wrong, and you will see a time reduction.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="play.html" role="button">Play Now!</a>
+        </p>
+      </div>
+    </main>
+    <!-- End of Jumbotron -->
+    <!-- Start of Footer -->
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">The Coding Quiz Game
+    <a href="index.html"> Home</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+    <!-- End of Footer -->
   </body>
 </html>
