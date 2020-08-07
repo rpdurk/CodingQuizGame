@@ -38,55 +38,64 @@ function initQuiz() {
   ];
 };
 
-// Document is ready for following DOM
-$(document).ready(function () {
-
+// Waits for all html to be ready, then runs function - avoid using if script is in the very last line.
+// $(document).ready(function () {
   // Necessary variable declarations
   // Start section
-  const $start = $(".start");
-  const $startBtn = $(".startBtn");
-  // Questions section
-  const $questions = $(".questions");
-  const $questionPrompt = $(".questionPrompt");
-  const $firstAnswer = $(".firstAnswer");
-  const $secondAnswer = $(".secondAnswer");
-  const $thirdAnswer = $(".thirdAnswer");
-  const $fourthAnswer = $(".fourthAnswer");
-  // High Scores section
-  const $highScore = $(".highScore");
-  let $userInitialInput = $(".userInitials");
-  let $userScoreEl = $(".userScore");
-  let $timeRemaining = $(".timeRemaining");
-  let time = 0;
-  let userScore = 0;
+  // const $start = $(".start");
+  // // const $startBtn = $(".startBtn"); - Why does this not work?
+  // // Questions section
+  // const $questions = $(".questions");
+  // const $questionPrompt = $(".questionPrompt");
+  // const $firstAnswer = $(".firstAnswer");
+  // const $secondAnswer = $(".secondAnswer");
+  // const $thirdAnswer = $(".thirdAnswer");
+  // const $fourthAnswer = $(".fourthAnswer");
+  // // High Scores section
+  // const $highScore = $(".highScore");
+  // let $userInitialInput = $(".userInitials");
+  // let $userScoreEl = $(".userScore");
+  // let $timeRemaining = $("#timeRemaining");
+  // let time = 0;
+  // let userScore = 0;
+  // let counter = 60;
+// });
+
+// Start of quiz functions
+// timer function
+function startTimer() {
+  interval = setInterval(function() {
+    // set counter to decrease
+    counter--;
+    console.log(counter);
+    $('.timer').text(counter);
+    // set counter to stop at 0
+    // if (counter === 0) {
+    //   clearInterval(interval);
+    //   $timeRemaining.html("Pencils Down!");
+    //   endQuiz();
+    // } else {
+    //   $timeRemaining.text(time);
+    // }
+  }, 1000);
+}
+// Hide from view once the page loads
+$('.questions').hide();
+$('.highScore').hide();
+
+// Start Quiz, Start Timer, Hide Start Button, Appear Questions
+$('.startBtn').on('click',function() {
+  // hide start card
+  $('.start').hide();
+  // show questions card
+  $('.questions').show();
+  // start timer
+  startTimer();
+  // display questions and answers
 });
 
-var counter = 0;
-var interval = setInterval(function() {
-    counter++;
-    // Display 'counter' wherever you want to display it.
-    if (counter === 0) {
-        // Display a login box
-        clearInterval(interval);
+// Logic
+// injected object into dom
+// 
 
-    }
-}, 1000);
-
-var timing;
-var myTimer;
-
-function begin() {
-    timing = 60;
-    $('#timing').html(timing);
-    $('#begin').prop('disabled', true);
-    myTimer = setInterval(function() {
-      --timing;
-      $('#timing').html(timing);
-      if (timing === 0) {
-        alert('Too late! Try again');
-        clearInterval(myTimer);
-        $('#begin').prop('disabled', false);
-      }
-    }, 1000);
- }
-//  array - add items to array - save the array to local storage four loop for each item in the array - create a p tag - score = user initial values with +
+//  array - add items to array - save the array to local storage four loop for each item in the array - create a p tag - score = user initial values with

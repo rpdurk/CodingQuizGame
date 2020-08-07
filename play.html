@@ -34,9 +34,9 @@
       <div class="col-12 d-flex justify-content-end">
           <form>
               <div class="form-group row">
-                  <label for="time-remaining" class="form-label d-flex end timeRemaining">Time Remaining</label>
-                  <div class="">
-                      <input type="number" readonly class="form-control d-flex justify-content-end" id="timer" placeholder="0">
+                  <label for="time-remaining" class="form-label d-flex end timeRemaining">Time Remaining: </label>
+                  <div class="timer">
+                      60
                   </div>
               </div>
           </form>
@@ -44,19 +44,19 @@
     </header>
     <!-- End of Timer header -->
     <!-- Start of Start Quiz Initial Prompt -->
-    <main class="card start" type="text" hidden style="width: 50 rem;">
+    <main class="card start" style="width: 50 rem;">
       <div class="card-body">
         <h2 class="card-title">Coding Quiz</h2>
         <h4 class="card-subtitle mb-2 text-muted">Rules</h4>
         <p class="card-text">1. You will have 60 seconds to answer as many questions as possible.</p>
         <p class="card-text">2. Every correct question will result in 100 points.</p>
         <p class="card-text">3. Every wrong question will result in 0 points and a 15s deduction to the clock.</p>
-        <button type="button startBtn" class="btn btn-primary btn-lg btn-block">Start Quiz</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block startBtn">Start Quiz</button>
       </div>
     </main>
     <!-- End of Start Quiz Initial Prompt-->
     <!-- Start Quiz Questions and Answers Section -->
-    <section class="card questions" type="text" hidden style="width: 50 rem;">
+    <section class="card questions" style="width: 50 rem;">
       <div class="card-body">
         <h2 class="card-title questionPrompt"></h2>
         <button type="button firstAnswer" class="btn btn-primary btn-lg btn-block">Start Quiz</button>
@@ -67,7 +67,7 @@
     </section>
     <!-- End of Quiz Questions and Answers Section -->
     <!-- Start High Score and Initials Submission -->
-    <section class="card highScore" type="text" hidden style="width: 50 rem;">
+    <section class="card highScore" style="width: 50 rem;">
       <div class="card-body">
         <h2 class="card-title questionPrompt">Submit your High Score!</h2>
         <form>
