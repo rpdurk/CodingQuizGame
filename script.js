@@ -38,20 +38,29 @@ function initQuiz() {
   ];
 };
 
-// necessary variables
+// Document is ready for following DOM
 $(document).ready(function () {
-let questionNumber = 0;
-let correctAnswer = 0;
-let incorrectAnswer = 0;
-let timer = 60;
-let counter = 0;
-const timeOut = 0;
-const $start = $('.start-button');
-const $count = $('#count');
-const $decrement = document.querySelector('#decrement');
-const $increment = document.querySelector('#increment');
 
+  // Necessary variable declarations
+  // Start section
+  const $start = $(".start");
+  const $startBtn = $(".startBtn");
+  // Questions section
+  const $questions = $(".questions");
+  const $questionPrompt = $(".questionPrompt");
+  const $firstAnswer = $(".firstAnswer");
+  const $secondAnswer = $(".secondAnswer");
+  const $thirdAnswer = $(".thirdAnswer");
+  const $fourthAnswer = $(".fourthAnswer");
+  // High Scores section
+  const $highScore = $(".highScore");
+  let $userInitialInput = $(".userInitials");
+  let $userScoreEl = $(".userScore");
+  let $timeRemaining = $(".timeRemaining");
+  let time = 0;
+  let userScore = 0;
 });
+
 var counter = 0;
 var interval = setInterval(function() {
     counter++;

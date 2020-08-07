@@ -34,7 +34,7 @@
       <div class="col-12 d-flex justify-content-end">
           <form>
               <div class="form-group row">
-                  <label for="time-remaining" class="form-label d-flex end">Time Remaining</label>
+                  <label for="time-remaining" class="form-label d-flex end timeRemaining">Time Remaining</label>
                   <div class="">
                       <input type="number" readonly class="form-control d-flex justify-content-end" id="timer" placeholder="0">
                   </div>
@@ -73,10 +73,15 @@
         <form>
           <div class="form-group">
             <label for="exampleFormControlInput1">Initials</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Joe StudyHard = JS">
+            <input type="text" class="form-control userInitialsInput" id="exampleFormControlInput1" placeholder="Joe StudyHard = JS">
           </div>
-          <input class="form-control scoreActual" type="text" placeholder="" readonly>
+          <input class="form-control userScore" type="text" placeholder="" readonly>
         </form>
+        <br>
+        <div>
+          <h5 class="card-title highScoreList" style= "text-align: center;">High Scores Records</h5>
+          <p class="card-title highScoresActual" style= "text-align: center;"></p>
+        </div>
       </div>
     </section>
     <!-- End of High Score and Initials Submission -->
