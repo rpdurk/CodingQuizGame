@@ -61,8 +61,14 @@ let questions =
   let counter = 60;
   let questionIndex = 0;
   let currentQuestion = questions[questionIndex];
-  // let currentQuestion = 0;
 // });
+
+//  what to do at the end of the quiz or when timer runs out.
+function endQuiz(){
+  $('.start').hide();
+  $('.questions').hide();
+  $('.highScore').show();
+};
 
 // Start of quiz functions
 // timer function
@@ -80,13 +86,14 @@ function startTimer() {
     }
   }, 1000);
 }
+
 // Hide from view once the page loads
 $('.questions').hide();
 $('.highScore').hide();
 
 function startQuestions() {
   // create a question index to be incremented through
-  $('.questionPrompt').append(currentQuestion.question);
+  $('.questionPrompt').text(currentQuestion.question);
   $('.firstAnswer').text(currentQuestion.answers[0]);
   $('.secondAnswer').text(currentQuestion.answers[1]);
   $('.thirdAnswer').text(currentQuestion.answers[2]);
@@ -100,7 +107,7 @@ function updateQuestion(){
 };
 
 // write an event listener for each button and compare to correct answer of question
-// event listener
+// event listener for first question with notes
 $('.firstAnswer').on('click', function() {
   // compare text of button to the value of correct answer
   if ($('.firstAnswer').text() === currentQuestion.correctAnswer.valueOf()) {
@@ -109,9 +116,7 @@ $('.firstAnswer').on('click', function() {
     // change button text to correct for (+) feedback
   $('.firstAnswer').text("Correct!");
   // empty buttons and questions
-  $('.questions').empty();
   updateQuestion();
-  console.log(currentQuestion)
   // display next set of questions
   startQuestions();
     // if wrong
@@ -120,44 +125,55 @@ $('.firstAnswer').on('click', function() {
   counter -=15;
     // give feedback for the wrong answer by changing the test
   $('.firstAnswer').text("Wrong!");
-  }
-  // regardless, increment the question index by 1 for the next question
   updateQuestion();
+  startQuestions();
+  }
 });
 
+// event listener for second question
 $('.secondAnswer').on('click', function() {
   if ($('.secondAnswer').text() === currentQuestion.correctAnswer.valueOf()) {
-  userScore + 100;
+  userScore += 100;
   $('.secondAnswer').text("Correct!");
+  updateQuestion();
+  startQuestions();
 } else {
   counter -=15;
   $('.secondAnswer').text("Wrong!");
+  updateQuestion();
+  startQuestions();
   }
-  // Need to increment currentQuestionIndex
 });
 
+// event listener for third question
 $('.thirdAnswer').on('click', function() {
   if ($('.thirdAnswer').text() === currentQuestion.correctAnswer.valueOf()) {
-  userScore + 100;
+  userScore += 100;
   $('.thirdAnswer').text("Correct!");
+  updateQuestion();
+  startQuestions();
 } else {
   counter -=15;
   $('.thirdAnswer').text("Wrong!");
+  updateQuestion();
+  startQuestions();
   }
-  // Need to increment currentQuestionIndex
 });
 
+// event listener for second question
 $('.fourthAnswer').on('click', function() {
   if ($('.fourthAnswer').text() === currentQuestion.correctAnswer.valueOf()) {
-  userScore + 100;
+  userScore += 100;
   $('.fourthAnswer').text("Correct!");
+  updateQuestion();
+  startQuestions();
 } else {
   counter -=15;
   $('.fourthAnswer').text("Wrong!");
+  updateQuestion();
+  startQuestions();
   }
-  // Need to increment currentQuestionIndex
 });
-
 
 // Start Quiz, Start Timer, Hide Start Button, Appear Questions
 $('.startBtn').on('click',function() {
