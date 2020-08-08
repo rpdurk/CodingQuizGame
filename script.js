@@ -59,7 +59,8 @@ let questions =
   let time = 0;
   let userScore = 0;
   let counter = 60;
-  let currentQuestion = questions[0];
+  let questionIndex = 0;
+  let currentQuestion = questions[questionIndex];
   // let currentQuestion = 0;
 // });
 
@@ -92,6 +93,12 @@ function startQuestions() {
   $('.fourthAnswer').text(currentQuestion.answers[3]);
 }
 
+// function to update a question and increment the index.  Call to alert to changed index.
+function updateQuestion(){
+  questionIndex++;
+  currentQuestion = questions[questionIndex];
+};
+
 // write an event listener for each button and compare to correct answer of question
 // event listener
 $('.firstAnswer').on('click', function() {
@@ -103,7 +110,8 @@ $('.firstAnswer').on('click', function() {
   $('.firstAnswer').text("Correct!");
   // empty buttons and questions
   $('.questions').empty();
-  currentQuestion++;
+  updateQuestion();
+  console.log(currentQuestion)
   // display next set of questions
   startQuestions();
     // if wrong
@@ -114,7 +122,7 @@ $('.firstAnswer').on('click', function() {
   $('.firstAnswer').text("Wrong!");
   }
   // regardless, increment the question index by 1 for the next question
-  currentQuestion ++;
+  updateQuestion();
 });
 
 $('.secondAnswer').on('click', function() {
