@@ -68,6 +68,8 @@ function endQuiz(){
   $('.start').hide();
   $('.questions').hide();
   $('.highScore').show();
+  $('.highScorePrompt').text("Enter your initials to save your score!");
+  $('.userScore').text(userScore.valueOf());
 };
 
 // Start of quiz functions
