@@ -37,32 +37,15 @@ let questions =
   },
 ];
 
+let $timeRemaining = $("#timeRemaining");
+let time = 0;
+let userScore = 0;
+let counter = 60;
+let questionIndex = 0;
+let currentQuestion = questions[questionIndex];
+let highScores = [];
 
-// document. ready = Waits for all html to be ready, then runs function - avoid using if script is in the very last line.
-// $(document).ready(function () {
-  // Necessary variable declarations
-  // Start section
-  // const $start = $(".start");
-  // // const $startBtn = $(".startBtn"); - Why does this not work?
-  // Questions section
-  const $questions = $(".questions");
-  const $questionPrompt = $(".questionPrompt");
-  const $firstAnswer = $(".firstAnswer");
-  const $secondAnswer = $(".secondAnswer");
-  const $thirdAnswer = $(".thirdAnswer");
-  const $fourthAnswer = $(".fourthAnswer");
-  // High Scores section
-  const $highScore = $(".highScore");
-  let $userInitialInput = $(".userInitials");
-  let $userScoreEl = $(".userScore");
-  let $timeRemaining = $("#timeRemaining");
-  let time = 0;
-  let userScore = 0;
-  let counter = 60;
-  let questionIndex = 0;
-  let currentQuestion = questions[questionIndex];
-// });
-
+// start of quiz based functions
 //  what to do at the end of the quiz or when timer runs out.
 function endQuiz(){
   $('.start').hide();
@@ -70,10 +53,9 @@ function endQuiz(){
   $('.highScore').show();
   $('.highScorePrompt').text("Enter your initials to save your score!");
   $('.userScore').text(userScore.toString());
-  console.log(userScore); // score is correct, but need to populate it into box.  Consider removing read only?
-};
+  init();
+}
 
-// Start of quiz functions
 // timer function
 function startTimer() {
   interval = setInterval(function() {
@@ -94,6 +76,7 @@ function startTimer() {
 $('.questions').hide();
 $('.highScore').hide();
 
+// actions that should be taken to prompt questions
 function startQuestions() {
   // create a question index to be incremented through
   $('.questionPrompt').text(currentQuestion.question);
@@ -107,10 +90,10 @@ function startQuestions() {
 function updateQuestion(){
   questionIndex++;
   currentQuestion = questions[questionIndex];
-};
+}
 
-// write an event listener for each button and compare to correct answer of question
-// event listener for first question with notes
+// an event listener for each button and compare to correct answer of question
+// event listener for first question button that runs a check on the answers with descriptive notes
 $('.firstAnswer').on('click', function() {
   // compare text of button to the value of correct answer
   if ($('.firstAnswer').text() === currentQuestion.correctAnswer.valueOf()) {
@@ -176,6 +159,48 @@ $('.fourthAnswer').on('click', function() {
   updateQuestion();
   startQuestions();
   }
+});
+
+//Local storage of High Scores
+function renderHighScores() {
+  // Make sure the high scores are empty
+  $('.highScoresActual').html('');
+  // Render a new p for each high score
+  for (let i = 0; i < highScores.length; i++) {
+    const $p = $('<p>');
+    $p.text(highScores[i]);
+    $p.attr('data-index', i);
+    $('.highScoresActual').append($p);
+  }
+}
+
+// Will do something similar for high scores.
+function init() {
+  // Write code here to check if there are highScores in localStorage
+  if (localStorage.getItem("highScores")) {
+    const savedHighScores = JSON.parse(localStorage.getItem("highScores"))
+    highScores.push(...savedHighScores);
+  }
+  // Render high scores to the DOM
+  renderHighScores();
+}
+
+function storeHighScores() {
+  // Add code here to stringify the high scores array and save it to the "high scores" key in localStorage
+  localStorage.setItem('highScores', JSON.stringify(highScores));
+}
+
+// When user initials are submitted.
+$('.form').on("submit", function(event) {
+  event.preventDefault();
+  const userInitialsInput = $('.userInitialsInput').val().trim();
+  if (userInitialsInput === "") {
+    return;
+  }
+  highScores.push(userInitialsInput+" "+userScore);
+  // Store updated high scores in localStorage, re-render the list
+  storeHighScores();
+  renderHighScores();
 });
 
 // Start Quiz, Start Timer, Hide Start Button, Appear Questions
