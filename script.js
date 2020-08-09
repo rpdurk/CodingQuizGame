@@ -69,7 +69,8 @@ function endQuiz(){
   $('.questions').hide();
   $('.highScore').show();
   $('.highScorePrompt').text("Enter your initials to save your score!");
-  $('.userScore').text(userScore.valueOf());
+  $('.userScore').text(userScore.toString());
+  console.log(userScore); // score is correct, but need to populate it into box.  Consider removing read only?
 };
 
 // Start of quiz functions
